@@ -1,6 +1,12 @@
 import { FormContainer, MinutesAmountInput, TaskInput } from '../../styles'
+import { useFormContext } from 'react-hook-form'
+import { useContext } from 'react'
+import { CyclesContext } from '../..'
 
 export function NewCycleForm() {
+  const { activeCycle } = useContext(CyclesContext)
+  const { register } = useFormContext()
+
   return (
     <FormContainer>
       <label htmlFor="task">Vou trabalhar em</label>
