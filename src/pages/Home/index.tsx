@@ -21,13 +21,7 @@ interface Cycle {
   finishedDate?: Date
 }
 
-interface CylesContextType {
-  activeCycle: Cycle | undefined
-  activeCycleId: string | null
-  amountSecondsPassed: number
-  markCurrentCycleAsFinished: () => void
-  setSecondsPassed: (seconds: number) => void
-}
+
 
 const newCycleFormValidationSchema = z.object({
   task: z.string().min(1, 'Informe a tarefa'),
@@ -39,7 +33,7 @@ const newCycleFormValidationSchema = z.object({
 
 type NewCycleFormData = z.infer<typeof newCycleFormValidationSchema>
 
-export const CyclesContext = createContext({} as CylesContextType)
+
 
 export function Home() {
   const [cycles, setCycles] = useState<Cycle[]>([])
